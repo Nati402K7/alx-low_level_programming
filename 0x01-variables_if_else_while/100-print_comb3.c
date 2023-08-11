@@ -8,7 +8,7 @@
 */
 int main(void)
 {
-int digit1 = 0. digit2;
+int digit1 = 0, digit2;
 while (digit1 <= 9)
 {
 digit2 = 0;
@@ -26,7 +26,7 @@ putchar (' ');
 }
 digit2++;
 }
-digit1++
+digit1++;
 }
 putchar ('\n');
 return (0);
