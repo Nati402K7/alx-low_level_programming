@@ -10,3 +10,4 @@ I'm federal agent Jack Bauer, and today is the longest day of my life
 Learn your times table
 a+b
 98 Battery Street, the OG
+The World looks like a multiplication-table, or a mathematical equation, which, turn it how you will, balances itself
