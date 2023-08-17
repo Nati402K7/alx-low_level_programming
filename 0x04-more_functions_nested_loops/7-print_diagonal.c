@@ -3,7 +3,7 @@
 /**
  * print_diagonal - A functio that draws a diagonal line on the terminal
  * @n: takes input from user
- * Return: Always 0
+ * Return: empty
  */
 
 void print_diagonal(int n)
@@ -18,7 +18,7 @@ void print_diagonal(int n)
 	{
 		for (post = 0; post < n; post++)
 		{
-			for (space = 0; space <= post; space++)
+			for (space = 0; space < post; space++)
 			{
 				_putchar(32);
 			}
