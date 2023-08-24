@@ -11,7 +11,7 @@ char *rot13(char *s)
 	int i;
 	char alp[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char ALP[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-	char *rot = n;
+	char *rot = s;
 
 	while (*s)
 	{
@@ -19,11 +19,11 @@ char *rot13(char *s)
 		{
 			if (*s == alp[i])
 			{
-				*s == ALP[i];
+				*s = ALP[i];
 				break;
 			}
 		}
-		n++;
+		s++;
 	}
 	return (rot);
 }
