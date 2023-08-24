@@ -7,3 +7,4 @@ Always look up
 Expect the best. Prepare for the worst. Capitalize on what comes
 Mozart composed his music not for the elite, but for everybody
 rot13
+Numbers have life; they're not just symbols on paper
