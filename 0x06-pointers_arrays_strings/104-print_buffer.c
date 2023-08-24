@@ -44,7 +44,7 @@ void print_buffer(char *b, int size)
 			}
 			printf("%c", c);
 		}
-		printf('\n");
+		printf("\n");
 		i += 10;
 	}
 }
