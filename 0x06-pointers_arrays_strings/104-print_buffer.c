@@ -1,50 +1,84 @@
 #include "main.h"
+#include <stdio.h>
+
+/**
+ * isPrintableASCII - A function that prints from 32 - 126
+ * @n: input
+ * Return: the value
+ */
+
+int isPrintableASCII(int n)
+{
+	return (n >= 32 && n <= 126);
+}
+
+/**
+ * printHexes - A function that prints hexes
+ * @b: input
+ * @start: num start
+ * @end: num end
+ */
+
+void printHexes(char *b, int start, int end)
+{
+	int i = 0;
+
+	while (i < 10)
+	{
+		if (i < end)
+			printf("%02x", *(b + start + i));
+		else
+			printf(" ");
+
+		if (i % 2)
+			printf(" ");
+		i++;
+	}
+}
+
+/**
+ * printASCII - A function that prints ASCII
+ * @b: input
+ * @start: num start
+ * @end: num end
+ */
+
+void printASCII(char *b, int start, int end)
+{
+	int ch, i = 0;
+
+	while (i < end)
+	{
+		ch = *(b + i + start);
+
+		if (!isPrintableASCII(ch))
+			ch = 46;
+		printf("%c", ch);
+		i++;
+	}
+}
 
 /**
  * print_buffer - A function that prints a buffer
  * @b: input
- * @size: bytes
+ * @size: size in bytes
  */
 
 void print_buffer(char *b, int size)
 {
-	int o, j, i;
-	o = 0;
+	int start, end;
 
-	if (size <= 0)
+	if (size > 0)
 	{
-		printf("\n");
-		return;
-	}
-
-	while (o < size)
-	{
-		j = size - o < 10 ? size - o : 10;
-		printf("%08x: ", o);
-
-		for (i = 0; i < 10; i++)
+		for (start = 0; start < size; start += 10)
 		{
-			if (i < j)
-				printf ("%02x", *(b + o + i));
-			else
-				printf (" ");
-
-			if (i % 2)
-			{
-				printf(" ");
-			}
+			end = (size - start < 10) ? size - start : 10;
+			printf("%08x: ", start);
+			printHexes(b, start, end);
+			printASCII(b, start, end);
+			printf("\n");
 		}
-		for (i = 0; i < j; i++)
-		{
-			int c = *(b + o + i);
-
-			if (c < 32 || c > 132)
-			{
-				c = '.';
-			}
-			printf("%c", c);
-		}
-		printf("\n");
-		o += 10;
 	}
+	else
+		printf("\n");
 }
