@@ -21,6 +21,10 @@ void rev_string(char *n)
 	for (j = 0; j < i; j++, i--)
 	{
 		temp = *(n + j);
+
+	for (j = 0; j < i; j++, i--)
+	{
+		temp = *(n + j);
 		*(n + j) = *(n + i);
 		*(n + i) = temp;
 	}
@@ -47,7 +51,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		j++;
 
 	i--;
-	j++;
+	j--;
 
 	if (j >= size_r || i >= size_r)
 		return (0);
@@ -84,5 +88,5 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	*(r + digits) = '\0';
 	rev_string(r);
-	return (0);
+	return (r);
 }
