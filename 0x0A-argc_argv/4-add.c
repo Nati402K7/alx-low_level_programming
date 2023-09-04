@@ -1,7 +1,7 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "main.h"
 
 /**
  * main - A program that  adds positive numbersz.
