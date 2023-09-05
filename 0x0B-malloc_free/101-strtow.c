@@ -2,85 +2,94 @@
 #include <stdlib.h>
 
 /**
- * wrdcnt - A function that counts words
- * @s: input word
- * Return: num words
+ * word_len - locates the index
+ * @str: string
+ * Return: value
  */
 
-int wrdcnt(char *s)
+int word_len(char *str)
 {
-	int i, n = 0;
+	int i = 0, l = 0;
 
-	for (i = 0; s[i]; i++)
+	while (*(str + i) && *(str + i) != ' ')
 	{
-		if (s[i] == ' ')
-		{
-			if (s[i + 1] != ' ' && s[i + 1] != '\0')
-				n++;
-		}
-		else if (i == 0)
-			n++;
+		l++;
+		i++;
 	}
-	n++;
-	return (n);
+
+	return (l);
 }
 
 /**
- * strtow - A functio that splits a string into words
+ * count_words - count words
  * @str: input string
- * Return: split word
+ * Return: num string
+ */
+
+int count_words(char *str)
+{
+	int i = 0, j = 0, k = 0;
+
+	for (i = 0; *(str + i); i++)
+		k++;
+
+	for (i = 0; i < k; i++)
+	{
+		if (*(str + i) != ' ')
+		{
+			j++;
+			i += word_len(str + i);
+		}
+	}
+	return (j);
+}
+
+/**
+ * strtow - A function that splits a string into words
+ * @str: input string
+ * Return: split string
  */
 
 char **strtow(char *str)
 {
-	int i, j, k, l, m = 0, n = 0;
-	char **w;
+	char **n;
+	int i = 0, j, k, l, m;
 
-	if (str == NULL || *str == '\0')
+	if (str == NULL || str[0] == '\0')
 		return (NULL);
 
-	m = wrdcnt(str);
-
-	if (m == 1)
+	j = count_words(str);
+	if (j == 0)
 		return (NULL);
 
-	w = (char **)malloc(m * sizeof(char *));
-
-	if (w == NULL)
+	n = malloc(sizeof(char *) * (j + 1));
+	if (n == NULL)
 		return (NULL);
 
-	w[m - 1] = NULL;
-	i = 0;
-
-	while (str[i])
+	for (k = 0; k < j; k++)
 	{
-		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
-		{
-			for (j = 1; str[i + j] != ' ' && str[i + j]; j++)
-				;
-			j++;
-			w[n] = (char *)malloc(j * sizeof(char));
-			j--;
-
-			if (w[n] == NULL)
-			{
-				for (k = 0; k < n; k++)
-					free(w[k]);
-
-				free(w[m - 1]);
-				free(w);
-				return (NULL);
-			}
-
-			for (l = 0; l < j; l++)
-				w[n][l] = str[i + l];
-
-			w[n][l] = '\0';
-			n++;
-			i += j;
-		}
-		else
+		while (str[i] == ' ')
 			i++;
+
+		l = word_len(str + i);
+
+		n[k] = malloc(sizeof(char) * (l + 1));
+
+		if (n[k] == NULL)
+		{
+			for (; k >= 0; k--)
+				free(n[k]);
+
+			free(n);
+			return (NULL);
+
+		}
+
+		for (m = 0; m < l; m++)
+			n[k][m] = str[i++];
+
+		n[k][m] = '\0';
 	}
-	return (w);
+	n[k] = NULL;
+	return (n);
 }
