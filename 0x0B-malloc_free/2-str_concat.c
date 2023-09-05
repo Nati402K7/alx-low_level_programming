@@ -30,10 +30,10 @@ char *str_concat(char *s1, char *s2)
 	char *m;
 
 	if (s1 == NULL)
-		s1 = NULL;
+		s1 = 'NULL';
 
 	if (s2 == NULL)
-		s2 = NULL;
+		s2 = 'NULL';
 
 	i = _strlen(s1);
 	j = _strlen(s2);
