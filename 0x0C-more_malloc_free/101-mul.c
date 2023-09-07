@@ -1,6 +1,8 @@
 #include "main.h"
 #include <stdlib.h>
 
+#define ERR_MSG "Error"
+
 /**
  * is_digit - A function that checks is a digit
  * @s: input string
