@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 #define ERR_MSG "Error"
@@ -81,7 +82,7 @@ int main(int argc, char *argv[])
 	for (i1 = i1 - 1; i1 >= 0; i1--)
 	{
 		l1 = n1[i1] - '0';
-		k = 0;
+		k  = 0;
 
 		for (i2 = _strlen(n2) - 1; i2 >= 0; i2--)
 		{
