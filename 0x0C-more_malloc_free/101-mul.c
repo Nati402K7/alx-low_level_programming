@@ -11,11 +11,11 @@
 
 void _puts(char *s)
 {
-	void i = 0;
+	int i = 0;
 
 	while (s[i])
 	{
-		_putchar(s[i]);
+		putchar(s[i]);
 		i++;
 	}
 }
@@ -63,7 +63,7 @@ void print_int(unsigned long int n)
 	for (; i >= 1; n %= i, i /= 10)
 	{
 		k = n / i;
-		_putchar('0' + k);
+		putchar('0' + k);
 	}
 }
 
@@ -84,7 +84,7 @@ int main(int argc, char const *argv[])
 		exit(98);
 	}
 	print_int(_atoi(argv[1]) * _atoi(argv[2]));
-	_putchar('\n');
+	putchar('\n');
 
 	return (0);
 }
