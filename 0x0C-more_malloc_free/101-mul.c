@@ -1,89 +1,111 @@
 #include "main.h"
-#include <string.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * _puts - A function that prints string
+ * is_digit - A function that checks is a digit
  * @s: input string
+ * Return: 1
  */
 
-void _puts(char *s)
+int is_digit(char *s)
 {
 	int i = 0;
 
 	while (s[i])
 	{
-		_putchar(s[i]);
+		if (s[i] < '0' || s[i] > '9')
+			return (0);
 		i++;
 	}
+	return (1);
 }
 
 /**
- * _atoi - A function that convert string
+ * _strlen - A function that counts string length
  * @s: input string
- * Return: converted strinh
+ * Return: string length
  */
 
-int _atoi(const char *s)
+int _strlen(char *s)
 {
-	int i = 1;
-	unsigned long int j = 0, k, l;
+	int i = 0;
 
-	for (k = 0; !(s[k] >= 48 && s[k] <= 57); k++)
+	while (s[i] != '\0')
 	{
-		if (s[k] == '-')
-		{
-			i *= -1;
-		}
+		i++;
 	}
-
-	for (l = k; s[l] >= 48 && s[l] <= 57; l++)
-	{
-		j *= 10;
-		j += (s[j] - 48);
-	}
-
-	return (i * j);
+	return (i);
 }
 
 /**
- * print_int - A function that prints integer
- * @n: input integer
+ * errors - error handlig
  */
 
-void print_int(unsigned long int n)
+void errors(void)
 {
-	unsigned long int i = 1, j, k;
-
-	for (j = 0; n / i > 9; j++, i *= 10)
-		;
-
-	for (; i >= 1; n %= i, i /= 10)
-	{
-		k = n / i;
-		_putchar('0' + k);
-	}
+	printf("Error\n");
+	exit(98);
 }
 
 /**
  * main - A program that multiplies two positive numbers
- * @argc: input int
- * @argv: input list
+ * @argc: input integer
+ * @argv: list
  * Return: Zero
  */
 
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
-	(void)argc;
+	char *n1, *n2;
+	int i1, i2, i, j, k, l1, l2, *m, n = 0;
 
-	if (argc != 3)
+	n1 = argv[1], n2 = argv[2];
+
+	if (argc != 3 || !is_digit(n1) || !is_digit(n2))
+		errors();
+
+	i1 = _strlen(n1);
+	i2 = _strlen(n2);
+	i = i1 + i2 + 1;
+
+	m = malloc(sizeof(int) * i);
+
+	if (!m)
+		return (1);
+
+	for (j = 0; j <= i1 + i2; j++)
+		m[j] = 0;
+
+	for (i1 = i1 - 1; i1 >= 0; i1--)
 	{
-		_puts("Error ");
-		exit(98);
-	}
-	print_int(_atoi(argv[1]) * _atoi(argv[2]));
-	_putchar('\n');
+		l1 = n1[i1] - '0';
+		k = 0;
 
+		for (i2 = _strlen(n2) - 1; i2 >= 0; i2--)
+		{
+			l2 = n2[i2] - '0';
+			k += m[i1 + i2 + 1] + (l1 * l2);
+			m[i1 + i2 + 1] = k % 10;
+			k /= 10;
+		}
+
+		if (k > 0)
+			m[i1 + i2 + 1] += k;
+	}
+
+	for (j = 0; j < i - 1; j++)
+	{
+		if (m[j])
+			n = 1;
+
+		if (n)
+			_putchar(m[j] + '0');
+	}
+
+	if (!n)
+		_putchar('0');
+
+	_putchar('\n');
+	free(m);
 	return (0);
 }
