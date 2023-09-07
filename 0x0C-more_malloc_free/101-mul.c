@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 
 /**
  * _puts - A function that prints string
@@ -15,7 +14,7 @@ void _puts(char *s)
 
 	while (s[i])
 	{
-		putchar(s[i]);
+		_putchar(s[i]);
 		i++;
 	}
 }
@@ -63,7 +62,7 @@ void print_int(unsigned long int n)
 	for (; i >= 1; n %= i, i /= 10)
 	{
 		k = n / i;
-		putchar('0' + k);
+		_putchar('0' + k);
 	}
 }
 
@@ -84,7 +83,7 @@ int main(int argc, char const *argv[])
 		exit(98);
 	}
 	print_int(_atoi(argv[1]) * _atoi(argv[2]));
-	putchar('\n');
+	_putchar('\n');
 
 	return (0);
 }
