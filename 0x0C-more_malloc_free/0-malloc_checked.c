@@ -3,14 +3,14 @@
 #include <limits.h>
 
 /**
- * malloc_checked - A function that allocates memory using malloc
+ * *malloc_checked - A function that allocates memory using malloc
  * @b: input
  * Return: pointer to the allocated memory
  */
 
 void *malloc_checked(unsigned int b)
 {
-	void *n = malloc(b);
+	int *n = malloc(b);
 
 	if (n == NULL)
 		exit(98);
