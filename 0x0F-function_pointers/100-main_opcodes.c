@@ -10,31 +10,18 @@
 
 int main(int argc, char *argv[])
 {
-	int i, j;
-	char *n;
+	char *i = (char *)main;
+	int j;
 
 	if (argc != 2)
-	{
-		printf("Error\n");
-		exit(1);
-	}
-	i = atoi(argv[1]);
+		printf("Error\n"), exit(1);
+	j = atoi(argv[1]);
 
-	if (i < 0)
-	{
-		printf("Error\n");
-		exit(2);
-	}
-	n = (char *)main;
+	if (j < 0)
+		printf("Error\n"), exit(2);
 
-	for (j = 0; j < i; j++)
-	{
-		if (j == i - 1)
-		{
-			printf("%02hhx\n", n[j]);
-			break;
-		}
-		printf("%02hhx", n[j]);
-	}
+	while (j--)
+		printf("%02hhx%s", *i++, j ? " " : "\n");
+
 	return (0);
 }
