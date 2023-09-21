@@ -9,4 +9,4 @@ main:
 
 
 section		.data
-	now db 'Hello, Holberton', 0
+	now db 'Hello, Holberton', 0xa, 0
