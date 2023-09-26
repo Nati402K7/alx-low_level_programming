@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * find_listint_loop_f1 - A function that find a loop
+ * find_listint_loop_fl - A function that find a loop
  * @head: node
  * Return: address of node otherwith NULL
  */
