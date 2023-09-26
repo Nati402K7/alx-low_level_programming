@@ -11,3 +11,4 @@ Insert
 Delete at index
 Reverse list
 Print(safe version)
+Free(safe version)
