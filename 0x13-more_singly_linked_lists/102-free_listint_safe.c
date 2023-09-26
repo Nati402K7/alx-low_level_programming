@@ -6,7 +6,7 @@
  * Return: address of node otherwith NULL
  */
 
-listint_t *find_listint_loop_f1(listint_t *head)
+listint_t *find_listint_loop_fl(listint_t *head)
 {
 	listint_t *p, *e;
 
@@ -33,19 +33,19 @@ listint_t *find_listint_loop_f1(listint_t *head)
 
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *list, *loop;
+	listint_t *next, *loop;
 	size_t l;
 	int i = 1;
 
 	if (h == NULL || *h == NULL)
 		return (0);
 
-	loop = find_listint_loop_f1(*h);
+	loop = find_listint_loop_fl(*h);
 
-	for (l = 0; (*h != loop || i) && *h != NULL; *h = list)
+	for (l = 0; (*h != loop || i) && *h != NULL; *h = next)
 	{
 		l++;
-		list = (*h)->next;
+		next = (*h)->next;
 		if (*h == loop && i)
 		{
 			if (loop == loop->next)
@@ -54,7 +54,7 @@ size_t free_listint_safe(listint_t **h)
 				break;
 			}
 			l++;
-			list = list->next;
+			next = next->next;
 			free((*h)->next);
 			i = 0;
 		}
