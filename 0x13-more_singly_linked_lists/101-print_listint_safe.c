@@ -8,14 +8,14 @@
  * Return: rocation on memory
  */
 
-cost listint_t **_p(const listint_t **l, size_t s, const listint_t *n)
+const listint_t **_p(const listint_t **l, size_t s, const listint_t *n)
 {
 	const listint_t **i;
 	size_t c;
 
 	i = malloc(s * sizeof(listint_t *));
 
-	if (i == '\0')
+	if (i == NULL)
 	{
 		free(l);
 		exit(98);
@@ -38,10 +38,10 @@ cost listint_t **_p(const listint_t **l, size_t s, const listint_t *n)
 
 size_t print_listint_safe(const listint_t *head)
 {
-	size_y i, num = 0;
+	size_t i, num = 0;
 	const listint_t **l = NULL;
 
-	while (head != '\0')
+	while (head != NULL)
 	{
 		for (i = 0; i < num; i++)
 		{
