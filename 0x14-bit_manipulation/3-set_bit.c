@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * set_but - A function that sets the value of a bit to 1 at a given index
+ * set_bit - A function that sets the value of a bit to 1 at a given index
  * @n: input number
  * @index: starting from 0 bit
  * Return: 1 if it worked, otherwith -1
