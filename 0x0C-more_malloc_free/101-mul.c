@@ -94,9 +94,9 @@ int main(int argc, char *argv[])
 
 	for (j = 0; j < i - 1; j++)
 	{
-		if (m[j])
+		if (m
+				[j])
 			n = 1;
-
 		if (n)
 			_putchar(m[j] + '0');
 	}
