@@ -21,7 +21,7 @@ int _strlen(char *s)
 /**
  * append_text_to_file - A function that appends text at the end of a file
  * @filename: name of the file
- * @text_content terminated string value
+ * @text_content: terminated string value
  * Return: 1 if success, otherwith -1
  */
 

@@ -4,7 +4,7 @@
 #define ERR_NOREAD "Error: can't read from file %s\n"
 #define ERR_NOWRITE "Error: can't write to %s\n"
 #define ERR_NOREAD "Error: can't close i %s\n"
-#define PERMISSIONS (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+#define PERMISSIONS (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
 
 /**
  * main - A function that program
@@ -18,7 +18,7 @@ int main(int ac, char **av)
 	int i = 0, j = 0;
 	ssize_t n;
 	char con[READ_BUF_SIZE];
-	
+
 	if (ac != 3)
 		dprintf(STDERR_FILENO, USAGE), exit(97);
 
