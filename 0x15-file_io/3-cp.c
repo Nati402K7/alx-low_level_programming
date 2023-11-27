@@ -1,9 +1,9 @@
 #include "main.h"
 
-#define USAGE "usage: cp file_from file_to\n"
+#define USAGE "Usage: cp file_from file_to\n"
 #define ERR_NOREAD "Error: can't read from file %s\n"
 #define ERR_NOWRITE "Error: can't write to %s\n"
-#define ERR_NOREAD "Error: can't close i %s\n"
+#define ERR_NOCLOSE "Error: can't close i %d\n"
 #define PERMISSIONS (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
 
 /**
@@ -48,5 +48,5 @@ int main(int ac, char **av)
 	if (j)
 		dprintf(STDERR_FILENO, ERR_NOCLOSE, i), exit(100);
 
-	return (EXIT SUCCESS);
+	return (EXIT_SUCCESS);
 }
