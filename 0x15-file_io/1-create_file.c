@@ -39,8 +39,8 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 
 	if (k)
-		bytes = write(i, text_content, k);
+		j = write(i, text_content, k);
 	close(i);
 
-	return (bytes == len ? 1 : -1);
+	return (j == k ? 1 : -1);
 }
