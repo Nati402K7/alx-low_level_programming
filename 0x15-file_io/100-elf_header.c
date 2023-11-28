@@ -280,7 +280,7 @@ int main(int ac, char **av)
 	print_magic(h);
 	print_class(h);
 	print_data(h);
-	print_version(h);
+	printf_version(h);
 	print_osabi(h);
 	print_abiversion(h);
 	print_type(h);
