@@ -135,7 +135,7 @@ void print_osabi(Elf64_Ehdr h)
 
 void print_osabi_more(Elf64_Ehdr h)
 {
-	switch (h.e_ident[EL_OSABI])
+	switch (h.e_ident[EI_OSABI])
 	{
 		case ELFOSABI_MODESTO:
 			printf("Novell - Modesto");
@@ -162,7 +162,7 @@ void print_osabi_more(Elf64_Ehdr h)
 
 void print_abiversion(Elf64_Ehdr h)
 {
-	printf("  ABI Version:                       %d\n", h.e_ident[EL_ABIVERSION]);
+	printf("  ABI Version:                       %d\n", h.e_ident[EI_ABIVERSION]);
 }
 
 /**
@@ -262,7 +262,7 @@ int main(int ac, char **av)
 	fd = open(av[1], O_RDONLY);
 
 	if (fd == -1)
-		dprintf(STDERR_FILENO, "Can't open file: %s\n" av[1]), exit(98);
+		dprintf(STDERR_FILENO, "Can't open file: %s\n", av[1]), exit(98);
 
 	b = read(fd, &h, sizeof(h));
 
